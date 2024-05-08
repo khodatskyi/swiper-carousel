@@ -18,5 +18,25 @@ swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
 
+@media (max-width: 1124px) {
+  swiper-slide {
+    width: 550px;
+  }
+}
+
+@media (max-width: 768px) {
+  swiper-slide {
+    width: 500px;
+  }
+}
+
+@media (max-width: 600px) {
+  swiper-slide {
+    width: 200px;
+    height: 400px;
+  }
 }
