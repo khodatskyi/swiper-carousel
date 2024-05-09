@@ -1,5 +1,7 @@
 <div class="container">
+  <div *ngIf="isLoading">LOADING...</div>
   <swiper-container
+    *ngIf="!isLoading"
     effect="coverflow"
     grab-cursor="true"
     centered-slides="true"
@@ -11,9 +13,7 @@
     coverflow-effect-slide-shadows="true"
   >
     <swiper-slide *ngFor="let photo of photosArray">
-      <img
-        [src]="photo"
-      />
+      <img [src]="photo" />
     </swiper-slide>
   </swiper-container>
 </div>

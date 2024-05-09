@@ -14,17 +14,20 @@ import { ApiService } from './services/api.service';
 export class AppComponent implements OnInit{
   title = 'swiper-carousel';
   photosArray: any[] = []
+  isLoading: boolean = true;
 
   constructor(private api:ApiService) {}
 
   ngOnInit(): void {
     this.api.fetchData().subscribe(
       (data: any[]) => {  
-        this.photosArray = data.map(item => item.urls.raw);
+        this.photosArray = data.map(item => item.urls.regular);
         console.log('We received a data', this.photosArray);
+        this.isLoading = false;
       },
       (error) => {
         console.error('We have an error', error);
+        this.isLoading = false;
       }
     );
   }
