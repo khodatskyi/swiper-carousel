@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { ApiService } from './services/api.service';
 import { forkJoin } from 'rxjs';
+import { UnsplashPhoto, PexelsPhoto } from './interfaces/interface';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ import { forkJoin } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   title = 'swiper-carousel';
-  photosArray: any[] = [];
+  photosArray: string[] = [];
   isLoading: boolean = true;
 
   constructor(private api: ApiService) {}
@@ -25,14 +26,12 @@ export class AppComponent implements OnInit {
 
     forkJoin([fetchData$, fetchDataFromPexels$]).subscribe(
       ([data1, data2]) => {
+        console.log('UNSPLASH:', data1);
+        console.log('PEXELS:', data2);
+
         this.photosArray = [
-          ...data1.map(
-            (item: { urls: { regular: any }; src: { landscape: any } }) =>
-              item.urls ? item.urls.regular : item.src.landscape
-          ),
-          ...data2.photos.map(
-            (item: { src: { landscape: any } }) => item.src.landscape
-          ),
+          ...data1.map((item: UnsplashPhoto) => item.urls.regular),
+          ...data2.photos.map((item: PexelsPhoto) => item.src.landscape),
         ];
         console.log('Combined data:', this.photosArray);
         this.isLoading = false;
