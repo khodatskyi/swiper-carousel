@@ -10,64 +10,9 @@
     coverflow-effect-modifier="1"
     coverflow-effect-slide-shadows="true"
   >
-    <swiper-slide lazy="true">
+    <swiper-slide *ngFor="let photo of photosArray">
       <img
-        src="https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171_1280.jpg"
-        loading="lazy"
-      />
-    </swiper-slide>
-    <swiper-slide lazy="true">
-      <img
-        src="https://cdn.pixabay.com/photo/2024/01/18/10/07/sunset-8516639_1280.jpg"
-        loading="lazy"
-      />
-    </swiper-slide>
-    <swiper-slide lazy="true">
-      <img
-        src="https://cdn.pixabay.com/photo/2016/11/29/04/19/ocean-1867285_1280.jpg"
-        loading="lazy"
-      />
-    </swiper-slide>
-    <swiper-slide lazy="true">
-      <img
-        src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"
-        loading="lazy"
-      />
-    </swiper-slide>
-    <swiper-slide lazy="true">
-      <img
-        src="https://cdn.pixabay.com/photo/2016/11/29/04/19/ocean-1867285_640.jpg"
-        loading="lazy"
-      />
-    </swiper-slide>
-    <swiper-slide lazy="true">
-      <img
-        src="https://img.freepik.com/free-photo/river-surrounded-by-forests-cloudy-sky-thuringia-germany_181624-30863.jpg?w=1380&t=st=1715150536~exp=1715151136~hmac=646dcdfcf449d44757c59b844374302d94d3620fa5e6bbd308ed6068d0c1e564"
-        loading="lazy"
-      />
-    </swiper-slide>
-    <swiper-slide lazy="true">
-      <img
-        src="https://cdn.pixabay.com/photo/2024/03/05/10/38/boat-8614314_1280.jpg"
-        loading="lazy"
-      />
-    </swiper-slide>
-    <swiper-slide lazy="true">
-      <img
-        src="https://cdn.pixabay.com/photo/2023/12/06/08/41/mountain-8433234_1280.jpg"
-        loading="lazy"
-      />
-    </swiper-slide>
-    <swiper-slide lazy="true">
-      <img
-        src="https://cdn.pixabay.com/photo/2018/06/13/18/20/waves-3473335_1280.jpg"
-        loading="lazy"
-      />
-    </swiper-slide>
-    <swiper-slide lazy="true">
-      <img
-        src="https://cdn.pixabay.com/photo/2016/11/23/13/48/beach-1852945_1280.jpg"
-        loading="lazy"
+        [src]="photo"
       />
     </swiper-slide>
   </swiper-container>
