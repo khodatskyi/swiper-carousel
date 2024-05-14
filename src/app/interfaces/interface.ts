@@ -138,3 +138,10 @@ export interface PexelsPhotoCollection {
   photos: PexelsPhoto[];
   total_results: number;
 }
+
+export interface PhotoInfo {
+  description: string;
+  url: string;
+  creatorName: string;
+  color: string;
+}

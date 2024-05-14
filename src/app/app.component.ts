@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { ApiService } from './services/api.service';
 import { forkJoin } from 'rxjs';
 import { UnsplashPhoto, PexelsPhoto } from './interfaces/interface';
+import { PhotoInfo } from './interfaces/interface';
 
 @Component({
   selector: 'app-root',
@@ -15,9 +16,9 @@ import { UnsplashPhoto, PexelsPhoto } from './interfaces/interface';
 })
 export class AppComponent implements OnInit {
   title = 'swiper-carousel';
-  photosArray: string[] = [];
+  photosArray: PhotoInfo[] = [];
   isLoading: boolean = true;
-  statusRequest: string = 'LOADING...'
+  statusRequest: string = 'LOADING...';
 
   constructor(private api: ApiService) {}
 
@@ -31,14 +32,28 @@ export class AppComponent implements OnInit {
         console.log('PEXELS:', receivedDataFromPexels);
 
         this.photosArray = [
-          ...receivedDataFromUnsplash.map((item: UnsplashPhoto) => item.urls.regular),
-          ...receivedDataFromPexels.photos.map((item: PexelsPhoto) => item.src.landscape),
+          ...receivedDataFromUnsplash.map((item: UnsplashPhoto) => {
+            return {
+              description: item.alt_description,
+              url: item.urls.regular,
+              creatorName: item.user.name,
+              color: item.color,
+            };
+          }),
+          ...receivedDataFromPexels.photos.map((item: PexelsPhoto) => {
+            return {
+              description: item.alt,
+              url: item.src.landscape,
+              creatorName: item.photographer,
+              color: item.avg_color,
+            };
+          }),
         ];
         console.log('Combined data:', this.photosArray);
         this.isLoading = false;
       },
       (error) => {
-        this.statusRequest = 'We have an error'
+        this.statusRequest = 'We have an error';
       }
     );
   }
