@@ -21,17 +21,17 @@ export class AppComponent implements OnInit {
   constructor(private api: ApiService) {}
 
   ngOnInit(): void {
-    const fetchData$ = this.api.fetchPhotoFromUnsplash();
+    const fetchDataFromUnsplash$ = this.api.fetchPhotoFromUnsplash();
     const fetchDataFromPexels$ = this.api.fetchPhotoFromPexels();
 
-    forkJoin([fetchData$, fetchDataFromPexels$]).subscribe(
-      ([data1, data2]) => {
-        console.log('UNSPLASH:', data1);
-        console.log('PEXELS:', data2);
+    forkJoin([fetchDataFromUnsplash$, fetchDataFromPexels$]).subscribe(
+      ([receivedDataFromUnsplash, receivedDataFromPexels]) => {
+        console.log('UNSPLASH:', receivedDataFromUnsplash);
+        console.log('PEXELS:', receivedDataFromPexels);
 
         this.photosArray = [
-          ...data1.map((item: UnsplashPhoto) => item.urls.regular),
-          ...data2.photos.map((item: PexelsPhoto) => item.src.landscape),
+          ...receivedDataFromUnsplash.map((item: UnsplashPhoto) => item.urls.regular),
+          ...receivedDataFromPexels.photos.map((item: PexelsPhoto) => item.src.landscape),
         ];
         console.log('Combined data:', this.photosArray);
         this.isLoading = false;
