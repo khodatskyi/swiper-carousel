@@ -144,4 +144,6 @@ export interface PhotoInfo {
   url: string;
   creatorName: string;
   color: string;
+  comment: string;
+  detailedDescription: string;
 }
