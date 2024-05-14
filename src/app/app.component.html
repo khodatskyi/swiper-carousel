@@ -1,5 +1,5 @@
 <div class="container">
-  <div *ngIf="isLoading">LOADING...</div>
+  <div *ngIf="isLoading">{{ statusRequest }}</div>
   <swiper-container
     *ngIf="!isLoading"
     effect="coverflow"

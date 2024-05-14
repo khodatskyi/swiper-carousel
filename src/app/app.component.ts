@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   title = 'swiper-carousel';
   photosArray: string[] = [];
   isLoading: boolean = true;
+  statusRequest: string = 'LOADING...'
 
   constructor(private api: ApiService) {}
 
@@ -37,8 +38,7 @@ export class AppComponent implements OnInit {
         this.isLoading = false;
       },
       (error) => {
-        console.error('We have an error', error);
-        this.isLoading = false;
+        this.statusRequest = 'We have an error'
       }
     );
   }
