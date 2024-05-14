@@ -12,8 +12,8 @@
     coverflow-effect-modifier="1"
     coverflow-effect-slide-shadows="true"
   >
-    <swiper-slide *ngFor="let photo of photosArray">
-      <img [src]="photo.url" />
+    <swiper-slide *ngFor="let photo of photosArray" [ngStyle]="{ 'background-image': 'url(' + photo.url + ')' }">
+      <div class="text-overlay"> {{ photo.creatorName }} </div>
     </swiper-slide>
   </swiper-container>
 </div>
