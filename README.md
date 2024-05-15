@@ -1,27 +1,32 @@
-# SwiperCarousel
+# Image Gallery
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
+Image Gallery is a frontend project developed using Angular. It serves as a platform for displaying dynamic image carousels sourced from two different APIs, Unsplash and Pexels, using the Swiper Carousel component. The project showcases the integration of various components, including carousels and API services, to dynamically display images fetched from external sources.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Visit the Project
 
-## Code scaffolding
+You can view the deployed version of the project [here](https://swiper-carousel.web.app/).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## Technologies Used
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Angular**: Frontend framework used for building the entire web application.
+- **HTML, CSS, TypeScript**: Languages used for structuring, styling, and scripting the web pages.
+- **Swiper Carousel**: Component used for creating smooth and interactive image carousels.
+- **Unsplash API**: External API used for fetching high-quality images.
+- **Pexels API**: External API used for fetching additional image resources.
+- **Git**: Version control system used for managing project files and collaboration.
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Usage
 
-## Running end-to-end tests
+To run the project locally, follow these steps:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Clone this repository.
+2. Navigate to the project directory.
+3. Install dependencies using `npm install`.
+4. Run the development server using `ng serve`.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
